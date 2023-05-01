@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat app using Socket IO and Node JS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <style>
+  </style>
+  <body>
+    <h1 class="font-bold text-black-500 text-3xl text-center m-5">ChatRoom</h1>
+    <div class="border mx-auto rounded w-80">
+      <div>
+        <h2 class="font-semibold text-xl text-center mt-5" id="logo">
+          Chat app using Socket IO and Node JS
+        </h2>
+      </div>
+      <form class="flex flex-col justify-center items-center mt-5" id="form">
+        <input
+          class="border border-gray-400 rounded-md mt-5 p-1"
+          type="text"
+          placeholder="Name"
+          id="myname"
+        />
+        <input
+          class="border border-gray-400 rounded-md mt-5 p-1"
+          type="text"
+          placeholder="Message"
+          id="message"
+        />
+        <button class="bg-blue-500 rounded-md p-2 px-4 text-white m-5">Send</button>
+      </form>
+    </div>
+    <div
+      class="flex flex-col justify-center items-center mt-5 rounded-md"
+      id="messageArea"
+    ></div>
+  </body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    let socket = io();
+
+    let form = document.getElementById("form");
+    let myname = document.getElementById("myname");
+    let message = document.getElementById("message");
+    let messageArea = document.getElementById("messageArea");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      if (message.value) {
+        socket.emit("sendName", myname.value);
+        socket.emit("sendMessage", message.value);
+        message.value = "";
+      }
+    });
+
+    socket.on("sendName", (username) => {
+      let name = document.createElement("p");
+      name.style.backgroundColor = "gray";
+      name.style.width = "22%";
+      name.style.textAlign = "center";
+      name.style.color = "white";
+      name.style.borderTop = "2px";
+      if (myname.value===username) {
+        name.textContent =  "You :";
+      }else{
+        name.textContent = username + " :";
+      }
+      
+      messageArea.appendChild(name);
+    });
+
+    socket.on("sendMessage", (chat) => {
+      let chatContent = document.createElement("p");
+      chatContent.style.backgroundColor = "gray";
+      chatContent.style.width = "22%";
+      chatContent.style.textAlign = "center";
+      chatContent.style.color = "white";
+      chatContent.style.marginBottom = "10px";
+      chatContent.textContent = chat;
+      messageArea.appendChild(chatContent);
+    });
+  </script>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "chatroom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon src/app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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:x-oauth-basic@github.com/vishalpatil12014017/ChatRoom.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishalpatil12014017/ChatRoom/issues"
+  },
+  "homepage": "https://github.com/vishalpatil12014017/ChatRoom#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.6.1"
+  }
+}
