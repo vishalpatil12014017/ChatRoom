@@ -8,23 +8,38 @@ This is a simple chat app created with Socket.io and Node.js. The app uses HTML 
 
 Clone the repository to your local machine : git clone https://github.com/vishalpatil12014017/ChatRoom
 
-### Installing
+### Installation
+
+To install the dependencies, navigate to the client and server directories and run:
 
 Install the dependencies : ```npm install```
 
 ### Running
 
-To start the app, run the following command in your terminal : ```npm run start```
+In the first terminal, navigate to the client directory and run : ```npm start```
+
+In the second terminal, navigate to the server directory and run : ```npm run start```
 
 ### Frontend
 
-This will start the server and make the app available on http://localhost:3535
+This will start the server and make the app available on http://localhost:3000
 
-Open your web browser and navigate to http://localhost:3535
+Open your web browser and navigate to http://localhost:3000
 
 1. Enter your name in the input field.
 
 2. Start chatting with other users in the chat room.
+
+
+This will start the Node.js server and allow for real-time communication between users.
+
+### Usage
+
+Enter your name in the input field.
+
+Choose a room to join or create a new one.
+
+Start chatting with other users in the chat room.
 
 ### Acknowledgments
 
