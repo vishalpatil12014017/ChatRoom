@@ -23,6 +23,7 @@ function useChat() {
   function handleJoin() {
     setJoined(1);
     socket.emit("join", room);
+    
   }
 
   function handleExit() {
